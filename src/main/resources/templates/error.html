@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Error</title>
+    <link rel="stylesheet" href="app.css"/>
+    <link rel="stylesheet" href="../app.css"/>
+</head>
+<body class="noisy">
+    <div class="piece output">
+        <h1 style="text-align: center;">You've made a grave mistake</h1>
+        <h2 th:text="|${#httpServletRequest.getAttribute('javax.servlet.error.status_code')} Error|">500 Error</h2>
+        <div th:if="${#httpServletRequest.getAttribute('javax.servlet.error.exception')} != null" class="app-error">
+            <code th:text="${#httpServletRequest.getAttribute('javax.servlet.error.exception')}">Error Message</code>
+        </div>
+    </div>
+    <div class="piece scanlines noclick"></div>
+    <div class="piece glow noclick"></div>
+</body>
+</html>

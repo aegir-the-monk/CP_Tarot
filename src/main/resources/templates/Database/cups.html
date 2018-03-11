@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>TAROT DATABASE</title>
+    <link rel="stylesheet" href="../app.css"/>
+</head>
+<body>
+<div class="cards piece output">
+        <div th:each="card : ${cups}" class="card">
+            <a th:href="@{'/card/' + ${card.id}}">
+                <img th:src="@{|/images/${card.id}.jpg|}" alt="card" class="info"/>
+            </a>
+        </div>
+</div>
+<div class="piece scanlines noclick"></div>
+<div class="piece glow noclick"></div>
+</body>
+</html>

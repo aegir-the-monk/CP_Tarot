@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>TAROT DATABASE</title>
+    <link rel="stylesheet" href="app.css"/>
+</head>
+<body class="noisy">
+<header>
+    <a href="/">Home</a>
+</header>
+<div class="piece output">
+    <div class="arcana-center">
+        <div th:each="string : ${types}" class="arcana">
+            <a th:href="@{'/' + ${string}}" th:text="${#strings.capitalize(string)}">NAME</a>
+        </div>
+    </div>
+</div>
+<div class="piece scanlines noclick"></div>
+<div class="piece glow noclick"></div>
+</body>
+</html>

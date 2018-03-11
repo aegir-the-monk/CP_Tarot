@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>TAROT DATABASE</title>
+    <link rel="stylesheet" href="app.css"/>
+</head>
+<body class="noisy">
+<header>
+    <a href="/">Home</a>
+</header>
+<div class="cards piece output">
+        <div th:each="suit : ${suits}" class="card holder">
+            <a th:href="@{'/minor/' + ${#strings.toLowerCase(suit.name)}}" class="nohover">
+                <img th:src="@{|/images/${suit.imageID}.jpg|}" alt="card" class="back"/>
+                <h2 th:text="${suit.name}" class="front">TEST</h2>
+            </a>
+        </div>
+</div>
+<div class="piece scanlines noclick"></div>
+<div class="piece glow noclick"></div>
+</body>
+</html>

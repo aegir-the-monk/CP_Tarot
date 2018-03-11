@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title th:text="${card.name}"> card </title>
+    <link rel="stylesheet" href="../app.css"/>
+</head>
+<body class="noisy">
+<header>
+    <a href="/">Home</a>
+    <a th:href="${card.id &lt; 22}? @{'/major'} : @{'/minor'}" style="margin-left: 15px;">Back</a>
+</header>
+<div class="piece output">
+    <h2 th:text="${card.name}">name</h2>
+    <h3 th:text="${card.reversed}? 'REVERSED' : 'UPRIGHT'">REVERSED</h3>
+    <div class="container none">
+        <a th:href="${card.reversed}? @{'/card/' + ${id}} : @{'/reversed/' + ${id}}" class="card">
+            <img th:src="@{|/images/${id}.jpg|}" alt="card" th:class="${card.reversed}? 'reversed image' : 'image' "/>
+            <div class="middle">
+                <div class="text dark">
+                    <h2 th:text="${card.reversed}? 'SEE UPRIGHT' : 'SEE REVERSED'">TEST</h2>
+                </div>
+            </div>
+        </a>
+    </div>
+    <p th:text ="${card.meaning}" style=" width:600px; position: absolute; top: 5cm; left: 10cm;"></p>
+</div>
+<div class="piece scanlines noclick"></div>
+<div class="piece glow noclick"></div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>TAROT DATABASE</title>
+    <link rel="stylesheet" href="../app.css"/>
+</head>
+<body class="noisy">
+<header>
+    <a href="/">Home</a>
+    <a href="/reading" style="margin-left: 15px;">Back</a>
+</header>
+<div class="cards piece output">
+    <div class="reading-center">
+        <div th:each="card : ${reading}" th:class="${card.rowNumber} + ' container'" >
+            <h2 th:text="${card.position}">Position</h2>
+                <img th:src="@{|/images/${card.id}.jpg|}" alt="card" th:class="${card.reversed}? 'image reversed' : 'image' "/>
+                <div class="middle">
+                    <div class="text">
+                        <h3 th:text="${card.name}">Name</h3>
+                        <p th:if="${card.reversed == true}">REVERSED</p>
+                        <p th:text="${card.meaning}">Meaning</p>
+                    </div>
+                </div>
+        </div>
+    </div>
+</div>
+<div class="piece scanlines noclick"></div>
+<div class="piece glow noclick"></div>
+</body>
+</html>
